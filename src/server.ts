@@ -1,10 +1,11 @@
 import { fastify } from "fastify";
 
+import { helloWorld, ping } from "./routes";
+
 const app = fastify();
 
-app.get("/", (request, reply) => {
-  reply.send({ message: "Hello World" });
-});
+app.register(helloWorld);
+app.register(ping);
 
 const PORT = 3333;
 app.listen({ port: PORT, host: "0.0.0.0" }).then(() => {
