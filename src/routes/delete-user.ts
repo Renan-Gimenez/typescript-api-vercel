@@ -10,7 +10,7 @@ interface DeleteUserInput {
 export async function deleteUser(app: FastifyInstance) {
   app
     .withTypeProvider()
-    .get("/delete-user/:targetId", async (request, reply) => {
+    .delete("/delete-user/:targetId", async (request, reply) => {
       try {
         const { targetId } = request.params as DeleteUserInput;
 
